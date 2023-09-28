@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import org.json.simple.JSONArray;
@@ -29,14 +30,19 @@ public class Telefone {
         super();
     }
 
-    public void setDefault() throws FileNotFoundException, IOException, ParseException {
+    public void setDefault() throws IOException, ParseException {
+        // Use o ClassLoader para carregar o arquivo do classpath
+        InputStream inputStream = getClass().getResourceAsStream("/contato.json");
+
+        if (inputStream == null) {
+            throw new FileNotFoundException("O arquivo JSON não foi encontrado");
+        }
 
         JSONArray telefoneArquivo = (JSONArray) parser
-                .parse(new InputStreamReader(new FileInputStream("contato.json"),
-                        StandardCharsets.UTF_8));
+                .parse(new InputStreamReader(inputStream, StandardCharsets.UTF_8));
+
         for (Object o : telefoneArquivo) {
             JSONObject tel_ = (JSONObject) o;
-            // Salva nas variaveis os dados retirados do arquivo
             String nome = tel_.get("nome").toString();
             String email = tel_.get("email").toString();
             String telefone = tel_.get("telefone").toString();
@@ -44,7 +50,6 @@ public class Telefone {
             Contato contato = new Contato(nome, email, telefone);
             adicionarContato(contato);
         }
-
     }
 
     public void listarContatos() {
