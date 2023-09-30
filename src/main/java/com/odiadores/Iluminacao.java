@@ -1,11 +1,13 @@
 package com.odiadores;
 
 public class Iluminacao {
+    private String nome;
     private boolean isLigada;
     private String cor;
     private int brilho;
 
-    public Iluminacao(String cor) {
+    public Iluminacao(String cor, String nome) {
+        this.nome = nome;
         this.isLigada = false;
         this.cor = cor;
         this.brilho = 50;
@@ -33,5 +35,9 @@ public class Iluminacao {
 
     public void setBrilho(int brilho) {
         this.brilho = brilho;
+    }
+
+    public String getNome() {
+        return nome;
     }
 }

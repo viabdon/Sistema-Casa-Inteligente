@@ -5,8 +5,10 @@ public class ArCondicionado {
     private int temperatura;
     private int inclinacaoPalheta;
     private String potenciaVento;
+    private String nome;
 
-    public ArCondicionado() {
+    public ArCondicionado(String nome) {
+        this.nome = nome;
         this.isLigado = false;
         this.temperatura = 24;
         this.inclinacaoPalheta = 45;
@@ -51,5 +53,9 @@ public class ArCondicionado {
 
     public void diminuirTemp() {
         this.setTemperatura(this.getTemperatura() - 1);
+    }
+
+    public String getNome() {
+        return nome;
     }
 }

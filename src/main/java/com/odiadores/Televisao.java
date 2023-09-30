@@ -5,8 +5,10 @@ public class Televisao {
     private String display;
     private float canal;
     private int volume;
+    private String nome;
 
-    public Televisao() {
+    public Televisao(String nome) {
+        this.nome = nome;
         this.isLigada = false;
         this.display = "Antena";
         this.canal = 8.7f;
@@ -43,6 +45,10 @@ public class Televisao {
 
     public void setVolume(int volume) {
         this.volume = volume;
+    }
+
+    public String getNome() {
+        return nome;
     }
 
     public void imprimirDados() {
