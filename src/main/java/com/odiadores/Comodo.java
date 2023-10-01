@@ -33,31 +33,4 @@ public class Comodo {
     public void adicionarFixo(Telefone tel) {
         this.listaDispositivos.add(tel);
     }
-
-    public String listarDispositivos() {
-        String saida = "Neste cômodo existem estes disositivos:";
-        for (int i = 0; i < listaDispositivos.size(); i++) {
-            if (listaDispositivos.get(i) instanceof ArCondicionado) {
-                ArCondicionado ar = (ArCondicionado) listaDispositivos.get(i);
-                System.out.println("\n" + ar.getNome() + "\n");
-            }
-            if (listaDispositivos.get(i) instanceof Iluminacao) {
-                Iluminacao iluminacao = (Iluminacao) listaDispositivos.get(i);
-                System.out.println("\n" + iluminacao.getNome() + "\n");
-            }
-            if (listaDispositivos.get(i) instanceof Televisao) {
-                Televisao tv = (Televisao) listaDispositivos.get(i);
-                System.out.println("\n" + tv.getNome() + "\n");
-            }
-            if (listaDispositivos.get(i) instanceof Telefone) {
-                Telefone tel = (Telefone) listaDispositivos.get(i);
-                System.out.println("\n" + tel.getNome() + "\n");
-            }
-            if (i == listaDispositivos.size() - 1) {
-                return saida;
-            }
-        }
-        System.out.println("Não existem dispositivos inteligentes nesse cômodo.");
-        return null;
-    }
 }

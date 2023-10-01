@@ -9,42 +9,45 @@ public class GUI {
     // Criando componentes do Java Swing e AWT
     private Color corDoFundo = new Color(130, 169, 124);
     private Color corComponentesFundo = new Color(124, 153, 169);
-    private JFrame menuPrincipal = new JFrame("Sistema de Casa Inteligente");
-    private JFrame menuSalaDeTV = new JFrame("Sala de TV");
-    private JFrame menuSalaDeJantar = new JFrame("Sala de Jantar");
-    private JFrame menuQuartoPrincipal = new JFrame("Quarto Principal");
+    private static JFrame menuPrincipal = new JFrame("Sistema de Casa Inteligente");
+    private static JFrame menuSalaDeTV = new JFrame("Sala de TV");
+    private static JFrame menuSalaDeJantar = new JFrame("Sala de Jantar");
+    private static JFrame menuQuartoPrincipal = new JFrame("Quarto Principal");
+
+
     private JLabel boasVindas = new JLabel("Bem-vindo(a) ao Sistema de Casa Inteligente!");
     private JLabel arTexto = new JLabel("Ar Condicionado: ");
     private JLabel tvTexto = new JLabel("Televisão: ");
     private JLabel luzTexto1 = new JLabel("");
     private JLabel luzTexto2 = new JLabel("");
     private JLabel telTexto = new JLabel("Telefone Fixo: ");
-    private JTextField input = new JTextField("(**) ****-****");
-    private JButton botaoSalaDeTV = new JButton("Sala de TV");
-    private JButton botaoVoltar = new JButton("<");
-    private JButton botaoQuartoPrincipal = new JButton("Quarto Principal");
-    private JButton botaoSalaDeJantar = new JButton("Sala de Jantar");
-    private JButton alternarEstadoAr = new JButton("ON/OFF");
-    private JButton aumentarTemp = new JButton("+Temp");
-    private JButton diminuirTemp = new JButton("-Temp");
-    private JButton alternarEstadoTV = new JButton("ON/OFF");
-    private JButton aumentarVol = new JButton("+Vol");
-    private JButton diminuirVol = new JButton("-Vol");
-    private JButton passarCanal = new JButton("+CH");
-    private JButton voltarCanal = new JButton("-CH");
-    private JButton alternarEstadoLuz1 = new JButton("ON/OFF");
-    private JButton alternarEstadoLuz2 = new JButton("ON/OFF");
-    private JButton ligar = new JButton("Ligar");
-    private String[] opcoesInclinacao = {"Diagonal", "Horizontal", "Vertical"};
-    private String[] opcoesVento = {"Médio", "Fraco", "Forte"};
-    private String[] opcoesBrilho = {"10%", "20%", "30%", "40%", "50%", "60%", "70%", "80%", "90%", "100%"};
-    private String[] opcoesCor = {"Branco", "Amarelo", "Azul", "Verde", "Vermelho", "Laranja"};
-    private JComboBox<String> dropdownInclinacao = new JComboBox<>(opcoesInclinacao);
-    private JComboBox<String> dropdownVento = new JComboBox<>(opcoesVento);
-    private JComboBox<String> dropdownBrilho = new JComboBox<>(opcoesBrilho);
-    private JComboBox<String> dropdownCor = new JComboBox<>(opcoesCor);
-    private JComboBox<String> dropdownBrilho2 = new JComboBox<>(opcoesBrilho);
-    private JComboBox<String> dropdownCor2 = new JComboBox<>(opcoesCor);
+    public static JTextField inputNumero = new JTextField("(**) ****-****");
+    public static JTextField inputCanal = new JTextField("Canal 14");
+    public static JButton botaoSalaDeTV = new JButton("Sala de TV");
+    public static JButton botaoVoltar = new JButton("<");
+    public static JButton botaoQuartoPrincipal = new JButton("Quarto Principal");
+    public static JButton botaoSalaDeJantar = new JButton("Sala de Jantar");
+    public static JButton alternarEstadoAr = new JButton("ON/OFF");
+    public static JButton aumentarTemp = new JButton("+Temp");
+    public static JButton diminuirTemp = new JButton("-Temp");
+    public static JButton alternarEstadoTV = new JButton("ON/OFF");
+    public static JButton aumentarVol = new JButton("+Vol");
+    public static JButton diminuirVol = new JButton("-Vol");
+    public static JButton alternarEstadoLuz1 = new JButton("ON/OFF");
+    public static JButton alternarEstadoLuz2 = new JButton("ON/OFF");
+    public static JButton ligar = new JButton("Ligar");
+    private static String[] opcoesInclinacao = {"Diagonal", "Horizontal", "Vertical"};
+    private static String[] opcoesVento = {"Médio", "Fraco", "Forte"};
+    private static String[] opcoesBrilho = {"10%", "20%", "30%", "40%", "50%", "60%", "70%", "80%", "90%", "100%"};
+    private static String[] opcoesCor = {"Branco", "Amarelo", "Azul", "Verde", "Vermelho", "Laranja"};
+    private static String[] opcoesDisplay = {"Antena", "HDMI1", "HDMI2", "AV", "USB"};
+    public static JComboBox<String> dropdownInclinacao = new JComboBox<>(opcoesInclinacao);
+    public static JComboBox<String> dropdownVento = new JComboBox<>(opcoesVento);
+    public static JComboBox<String> dropdownBrilho = new JComboBox<>(opcoesBrilho);
+    public static JComboBox<String> dropdownCor = new JComboBox<>(opcoesCor);
+    public static JComboBox<String> dropdownBrilho2 = new JComboBox<>(opcoesBrilho);
+    public static JComboBox<String> dropdownCor2 = new JComboBox<>(opcoesCor);
+    public static JComboBox<String> dropdownDisplay = new JComboBox<>(opcoesDisplay);
     private JPanel containerAr = new JPanel();
     private JPanel containerTV = new JPanel();
     private JPanel containerLuz1 = new JPanel();
@@ -95,10 +98,10 @@ public class GUI {
         containerTV.setBackground(corComponentesFundo);        
         containerTV.add(tvTexto);
         containerTV.add(alternarEstadoTV);
+        containerTV.add(inputCanal);
         containerTV.add(aumentarVol);
         containerTV.add(diminuirVol);
-        containerTV.add(passarCanal);
-        containerTV.add(voltarCanal);
+        containerTV.add(dropdownDisplay);
         containerLuz1.setBounds(40, 130, 500, 50);
         containerLuz1.setBackground(corComponentesFundo);
         containerLuz1.add(luzTexto1);
@@ -114,7 +117,7 @@ public class GUI {
         containerTel.setBounds(40, 210, 500, 50);
         containerTel.setBackground(corComponentesFundo);
         containerTel.add(telTexto);
-        containerTel.add(input);
+        containerTel.add(inputNumero);
         containerTel.add(ligar);
         
         // 2. Botões do Menu e Painéis (com exceção do botaoVoltar)
@@ -162,6 +165,7 @@ public class GUI {
                 menuSalaDeJantar.setVisible(true);
                 menuSalaDeJantar.add(botaoVoltar);
                 menuSalaDeJantar.add(containerLuz2);
+                luzTexto2.setText("Lâmpadas da Sala de Jantar");
                 menuSalaDeJantar.add(containerAr);
             }
         });
@@ -174,6 +178,7 @@ public class GUI {
                 menuQuartoPrincipal.setVisible(true);
                 menuQuartoPrincipal.add(botaoVoltar);
                 menuQuartoPrincipal.add(containerLuz2);
+                luzTexto2.setText("Lâmpada Central do Quarto");
                 menuQuartoPrincipal.add(containerLuz1);
                 luzTexto1.setText("Luminária RGB: ");
                 menuQuartoPrincipal.add(containerAr);
@@ -186,6 +191,23 @@ public class GUI {
         menuPrincipal.add(botaoSalaDeTV);
         menuPrincipal.add(botaoSalaDeJantar);
         menuPrincipal.add(botaoQuartoPrincipal);   
+    }
+
+    // Getters
+    public static JFrame getMenuPrincipal() {
+        return menuPrincipal;
+    }
+
+    public static JFrame getMenuSalaDeTV() {
+        return menuSalaDeTV;
+    }
+
+    public static JFrame getMenuSalaDeJantar() {
+        return menuSalaDeJantar;
+    }
+
+    public static JFrame getMenuQuartoPrincipal() {
+        return menuQuartoPrincipal;
     }
 }
 

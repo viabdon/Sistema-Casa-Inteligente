@@ -3,7 +3,7 @@ package com.odiadores;
 public class ArCondicionado {
     private boolean isLigado;
     private int temperatura;
-    private int inclinacaoPalheta;
+    private String inclinacaoPalheta;
     private String potenciaVento;
     private String nome;
 
@@ -11,8 +11,8 @@ public class ArCondicionado {
         this.nome = nome;
         this.isLigado = false;
         this.temperatura = 24;
-        this.inclinacaoPalheta = 45;
-        this.potenciaVento = "média";
+        this.inclinacaoPalheta = "Diagonal";
+        this.potenciaVento = "Médio";
     }
 
     public boolean isLigado() {
@@ -31,11 +31,11 @@ public class ArCondicionado {
         this.temperatura = temperatura;
     }
 
-    public int getInclinacaoPalheta() {
+    public String getInclinacaoPalheta() {
         return inclinacaoPalheta;
     }
 
-    public void setInclinacaoPalheta(int inclinacaoPalheta) {
+    public void setInclinacaoPalheta(String inclinacaoPalheta) {
         this.inclinacaoPalheta = inclinacaoPalheta;
     }
 

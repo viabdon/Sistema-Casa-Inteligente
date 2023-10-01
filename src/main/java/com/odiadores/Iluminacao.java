@@ -4,13 +4,13 @@ public class Iluminacao {
     private String nome;
     private boolean isLigada;
     private String cor;
-    private int brilho;
+    private String brilho;
 
     public Iluminacao(String nome) {
         this.nome = nome;
         this.isLigada = false;
         this.cor = "Branco";
-        this.brilho = 10;
+        this.brilho = "10%";
     }
 
     public boolean isLigada() {
@@ -29,11 +29,11 @@ public class Iluminacao {
         this.cor = cor;
     }
 
-    public int getBrilho() {
+    public String getBrilho() {
         return brilho;
     }
 
-    public void setBrilho(int brilho) {
+    public void setBrilho(String brilho) {
         this.brilho = brilho;
     }
 

@@ -26,14 +26,12 @@ public class Telefone {
         }
     }
 
-    public boolean ligar(String numero) {
+    public String ligar(String numero) {
         for (Contato cont : listaContatos) {
             if (cont.getTelefone().equals(numero)) {
-                System.out.println("Iniciando chamada.");
-                return true;
+                return cont.getNome();
             }
         }
-        System.out.println("Não foi encontrado um contato com esse número.");
-        return false;
+        return null;
     }
 }

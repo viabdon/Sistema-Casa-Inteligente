@@ -3,7 +3,7 @@ package com.odiadores;
 public class Televisao {
     private boolean isLigada;
     private String display;
-    private float canal;
+    private String canal;
     private int volume;
     private String nome;
 
@@ -11,7 +11,7 @@ public class Televisao {
         this.nome = nome;
         this.isLigada = false;
         this.display = "Antena";
-        this.canal = 8.7f;
+        this.canal = "14";
         this.volume = 25;
     }
 
@@ -31,11 +31,11 @@ public class Televisao {
         this.display = display;
     }
 
-    public float getCanal() {
+    public String getCanal() {
         return canal;
     }
 
-    public void setCanal(float canal) {
+    public void setCanal(String canal) {
         this.canal = canal;
     }
 
@@ -51,10 +51,11 @@ public class Televisao {
         return nome;
     }
 
-    public void imprimirDados() {
-        System.out.println("Ligada? " + isLigada());
-        System.out.println("Display: " + getDisplay());
-        System.out.println("Canal: " + getCanal());
-        System.out.println("Volume: " + getVolume());
+    public void aumentarVol() {
+        this.setVolume(this.getVolume() + 1);
+    }
+
+    public void diminuirVol() {
+        this.setVolume(this.getVolume() - 1);
     }
 }
