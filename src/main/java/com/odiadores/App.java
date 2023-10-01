@@ -3,37 +3,37 @@ package com.odiadores;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import org.json.simple.parser.ParseException;
-import java.util.ArrayList;
-import java.util.Scanner;
 
 public class App {
-
-    public static Scanner sc = new Scanner(System.in);
-    public static Scanner scText = new Scanner(System.in);
-    public static ArrayList<Comodo> listaComodos = new ArrayList<>();
-
     public static void main(String[] args) throws FileNotFoundException, IOException, ParseException {
 
-        DecodificadorTelefone telefone1 = new DecodificadorTelefone("Telefone da Sala");
-        telefone1.setDefault();
-        ArCondicionado arCondicionado = new ArCondicionado("Ar Condicionado da Sala");
-        Iluminacao ledRGB = new Iluminacao("Verde", "Led da Parede da Sala");
-        Iluminacao lampadaCentral = new Iluminacao("Branco", "Lâmpada do Teto da Sala");
-        Televisao tvSala = new Televisao("Televisão da Sala");
+        DecodificadorTelefone telefoneFixo = new DecodificadorTelefone("Telefone da Sala de TV");
+        telefoneFixo.setDefault();
+        ArCondicionado arSalaDeTV = new ArCondicionado("Ar Condicionado da Sala de TV");
+        Iluminacao ledRGB = new Iluminacao("Verde", "Led da Parede da Sala de TV");
+        Iluminacao lampadaCentral = new Iluminacao("Branco", "Lâmpada Central da Sala de TV");
+        Televisao tvSala = new Televisao("Televisão da Sala de TV");
         Comodo salaDeTV = new Comodo("Sala de TV");
-        salaDeTV.adicionarArCondicionado(arCondicionado);
+        salaDeTV.adicionarArCondicionado(arSalaDeTV);
         salaDeTV.adicionarTelevisao(tvSala);
         salaDeTV.adicionarIluminacao(ledRGB);
         salaDeTV.adicionarIluminacao(lampadaCentral);
-        salaDeTV.adicionarFixo(telefone1);
-        listaComodos.add(salaDeTV);
-    }
+        salaDeTV.adicionarFixo(telefoneFixo);
+        ArCondicionado arSalaDeJantar = new ArCondicionado("Ar Condicionado da Sala de Jantar");
+        Iluminacao lampadasPrincipais = new Iluminacao("Amarelo", "Lâmpadas da Sala de Jantar");
+        Comodo salaDeJantar = new Comodo("Sala de Jantar");
+        salaDeJantar.adicionarArCondicionado(arSalaDeJantar);
+        salaDeJantar.adicionarIluminacao(lampadasPrincipais);
+        ArCondicionado arQuartoPrincipal = new ArCondicionado("Ar Condicionado do Quarto Principal");
+        Iluminacao lampadaQuartoPrincipal = new Iluminacao("Branco", "Lâmpada do Quarto Principal");
+        Iluminacao luminariaQuartoPrincipal = new Iluminacao("Amarelo", "Luminária do Quarto Principal");
+        Televisao tvQuartoPrincipal = new Televisao("Televisão do Quarto Principal");
+        Comodo quartoPrincipal = new Comodo("Quarto Principal");
+        quartoPrincipal.adicionarArCondicionado(arQuartoPrincipal);
+        quartoPrincipal.adicionarIluminacao(luminariaQuartoPrincipal);
+        quartoPrincipal.adicionarIluminacao(lampadaQuartoPrincipal);
+        quartoPrincipal.adicionarTelevisao(tvQuartoPrincipal);
 
-    public void listarComodos() {
-        System.out.println("Lista de cômodos: \n");
-        for (Comodo comodo : listaComodos) {
-            System.out.println(comodo.getNome() + "\n");
-        }
+        new GUI();
     }
-
 }
