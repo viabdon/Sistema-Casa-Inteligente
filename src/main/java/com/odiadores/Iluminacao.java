@@ -6,11 +6,11 @@ public class Iluminacao {
     private String cor;
     private int brilho;
 
-    public Iluminacao(String cor, String nome) {
+    public Iluminacao(String nome) {
         this.nome = nome;
         this.isLigada = false;
-        this.cor = cor;
-        this.brilho = 50;
+        this.cor = "Branco";
+        this.brilho = 10;
     }
 
     public boolean isLigada() {
