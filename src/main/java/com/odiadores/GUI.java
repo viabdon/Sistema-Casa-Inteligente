@@ -196,7 +196,8 @@ public class GUI {
         menuPrincipal.add(boasVindas);
         menuPrincipal.add(botaoSalaDeTV);
         menuPrincipal.add(botaoSalaDeJantar);
-        menuPrincipal.add(botaoQuartoPrincipal);   
+        menuPrincipal.add(botaoQuartoPrincipal);
+        menuPrincipal.add(dataHoraTexto);
     }
 
     // Getters
