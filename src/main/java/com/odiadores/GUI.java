@@ -13,14 +13,13 @@ public class GUI {
     private static JFrame menuSalaDeTV = new JFrame("Sala de TV");
     private static JFrame menuSalaDeJantar = new JFrame("Sala de Jantar");
     private static JFrame menuQuartoPrincipal = new JFrame("Quarto Principal");
-
-
     private JLabel boasVindas = new JLabel("Bem-vindo(a) ao Sistema de Casa Inteligente!");
     private JLabel arTexto = new JLabel("Ar Condicionado: ");
     private JLabel tvTexto = new JLabel("Televisão: ");
     private JLabel luzTexto1 = new JLabel("");
     private JLabel luzTexto2 = new JLabel("");
     private JLabel telTexto = new JLabel("Telefone Fixo: ");
+    private static JLabel dataHoraTexto = new JLabel("");
     public static JTextField inputNumero = new JTextField("(**) ****-****");
     public static JTextField inputCanal = new JTextField("Canal 14");
     public static JButton botaoSalaDeTV = new JButton("Sala de TV");
@@ -54,6 +53,7 @@ public class GUI {
     private JPanel containerLuz2 = new JPanel();
     private JPanel containerTel = new JPanel();
 
+    //Construtor da GUI
     public GUI() {
         // Configurando as Janelas
         menuPrincipal.setSize(500, 500);
@@ -83,6 +83,8 @@ public class GUI {
 
         // Configurando Labels
         boasVindas.setBounds(120, 20, 260, 20);
+        dataHoraTexto.setBounds(10, 350, 500, 20);
+
 
         // Configurando Botões e Eventos:
         // 1. Botões de dispositivos
@@ -125,6 +127,7 @@ public class GUI {
         botaoVoltar.setBounds(10, 10, 45, 20);
         botaoVoltar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+                menuPrincipal.add(dataHoraTexto);
                 if (menuSalaDeTV.isVisible()) {
                     menuPrincipal.setVisible(true);
                     menuSalaDeTV.setVisible(false);
@@ -154,6 +157,7 @@ public class GUI {
                 menuSalaDeTV.add(containerLuz1);
                 menuSalaDeTV.add(containerLuz2);
                 menuSalaDeTV.add(containerTel);
+                menuSalaDeTV.add(dataHoraTexto);
             }
         });
 
@@ -167,6 +171,7 @@ public class GUI {
                 menuSalaDeJantar.add(containerLuz2);
                 luzTexto2.setText("Lâmpadas da Sala de Jantar");
                 menuSalaDeJantar.add(containerAr);
+                menuSalaDeJantar.add(dataHoraTexto);
             }
         });
 
@@ -182,6 +187,7 @@ public class GUI {
                 menuQuartoPrincipal.add(containerLuz1);
                 luzTexto1.setText("Luminária RGB: ");
                 menuQuartoPrincipal.add(containerAr);
+                menuQuartoPrincipal.add(dataHoraTexto);
             }
         });
         //
@@ -194,6 +200,10 @@ public class GUI {
     }
 
     // Getters
+    public static JLabel getDataHoraTexto() {
+        return dataHoraTexto;
+    }
+
     public static JFrame getMenuPrincipal() {
         return menuPrincipal;
     }

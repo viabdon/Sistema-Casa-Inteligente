@@ -5,8 +5,9 @@ import java.io.IOException;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import org.json.simple.parser.ParseException;
+import org.joda.time.LocalDate;
+import org.joda.time.LocalTime;
 
 public class App extends GUI {
     public static void main(String[] args) throws FileNotFoundException, IOException, ParseException {
@@ -40,6 +41,18 @@ public class App extends GUI {
         quartoPrincipal.adicionarTelevisao(tvQuartoPrincipal);
 
         //Implementação das funcionalidades.
+        
+        //Data e Hora:
+    
+        Timer timer = new Timer(1000, new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                final LocalDate dataAtual = new LocalDate();
+                final LocalTime horaAtual = new LocalTime();
+                getDataHoraTexto().setText("Data: " + dataAtual.toString() + "; " + "Hora " + horaAtual.toString().substring(0, horaAtual.toString().length() - 3));
+            }
+        });
+        timer.start();
+
         //Ar Condicionado:
         alternarEstadoAr.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
