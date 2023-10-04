@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Telefone {
 
-    String nome;
+    private String nome;
 
     public Telefone(String nome) {
         this.nome = nome;
